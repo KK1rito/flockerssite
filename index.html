@@ -76,14 +76,13 @@
     }
     
     .video-container {
-      width: 85vw;
-      max-width: 1200px;
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 40px rgba(52, 152, 219, 0.5);
-      margin: 80px 0 40px 0;
+    width: 85%;
+    max-width: 1100px;
+    height: 625px; 
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 40px rgba(52, 152, 219, 0.5);
     }
+
     
     video {
       width: 100%;
@@ -180,7 +179,6 @@
       }
     }
     
-    /* Effetto particelle in background */
     .particles {
       position: fixed;
       top: 0;
@@ -214,7 +212,6 @@
       }
     }
     
-    /* Pulsazione bottoni */
     @keyframes pulse {
       0% {
         transform: scale(1);
@@ -234,7 +231,6 @@
 </head>
 <body>
   <div class="particles">
-    <!-- Particelle generate via JS -->
   </div>
 
   <div class="container">
@@ -242,14 +238,17 @@
       <h1 class="site-title">Flocker's Site</h1>
     </header>
     
-    <div class="video-container">
-      <div class="video-overlay"></div>
-      <video controls autoplay muted loop>
-        <source src="video.mp4" type="video/mp4">
-        Il tuo browser non supporta il tag video. Aggiorna il browser per visualizzare questo contenuto.
-      </video>
-    </div>
-    
+  <div class="video-container">
+    <iframe
+     width="100%"
+     height="100%"
+     src="https://www.youtube.com/embed/IPidF70odts"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
     <div class="social-buttons">
       <a href="https://t.me/kk1ritoblog" target="_blank" class="social-button telegram" title="Telegram">
         <i class="fab fa-telegram-plane"></i>
@@ -266,7 +265,6 @@
   </div>
 
   <script>
-    // Crea effetto particelle
     function createParticles() {
       const particlesContainer = document.querySelector('.particles');
       const particleCount = 15;
@@ -275,24 +273,19 @@
         const particle = document.createElement('div');
         particle.classList.add('particle');
         
-        // Dimensioni casuali
         const size = Math.random() * 15 + 5;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         
-        // Posizione casuale
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
         
-        // Delay casuale per l'animazione
         particle.style.animationDelay = `${Math.random() * 10}s`;
         
-        // Aggiungere la particella al container
         particlesContainer.appendChild(particle);
       }
     }
     
-    // Inizializza quando il DOM è caricato
     document.addEventListener('DOMContentLoaded', function() {
       createParticles();
     });
